@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Bac Bo IA</title>
+  <style>
+    body { background: #111; color: #eee; font-family: sans-serif; text-align: center; padding: 40px; }
+    button { padding: 12px 30px; font-size: 18px; margin: 20px; background: #0a0; border: none; color: #fff; cursor: pointer; border-radius: 8px; }
+    #saida { background: #222; padding: 20px; margin-top: 20px; border-radius: 8px; min-height: 80px; }
+  </style>
+</head>
+<body>
+  <h1>🤖 Painel Bac Bo IA</h1>
+  <button onclick="analisar()">🔍 Analisar Agora</button>
+  <div id="saida">Clique para analisar...</div>
+  <script>
+    async function analisar() {
+      const res = await fetch('/analisar');
+      const texto = await res.text();
+      document.getElementById('saida').innerText = texto;
+    }
+  </script>
+</body>
+</html>
